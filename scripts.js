@@ -18,10 +18,19 @@
  */
 
 window.addEventListener('load', function () {
+    // command button elements
     const takeOffButton = document.getElementById('takeoff');
     const landingButton = document.getElementById('landing');
     const abortButton = document.getElementById('missionAbort');
-    const rocket = document.querySelector('.rocket'); // added to make the rocket land and take off on command
+
+    // direction button elements
+    const upButton = document.getElementById('up');
+    const downButton = document.getElementById('down');
+    const rightButton = document.getElementById('right');
+    const leftButton = document.getElementById('left');
+
+    // rocket element
+    const rocket = document.getElementById('rocket'); // added to make the rocket land and take off on command
 
     const flightStatus = document.getElementById('flightStatus');
     const flightScreen = document.getElementById('shuttleBackground');
@@ -63,5 +72,23 @@ window.addEventListener('load', function () {
             rocket.style.bottom = '0';
             rocket.style.left = '125px';
         }
-    })
+    });
+
+    // 5
+    leftButton.addEventListener('click', function () {
+        console.log('left', rocket.style.left);
+        rocket.style.left = String(parseInt(rocket.style.left, 10) - 10) + 'px';
+    });
+    rightButton.addEventListener('click', function () {
+        console.log('right', rocket.style.left);
+        rocket.style.left = String(parseInt(rocket.style.left, 10) + 10) + 'px';
+    });
+    upButton.addEventListener('click', function () {
+        console.log('up', rocket.style.bottom);
+        rocket.style.bottom = String(parseInt(rocket.style.bottom, 10) + 10) + 'px';
+    });
+    downButton.addEventListener('click', function () {
+        console.log('down', rocket.style.bottom);
+        rocket.style.bottom = String(parseInt(rocket.style.bottom, 10) - 10) + 'px';
+    });
 });
