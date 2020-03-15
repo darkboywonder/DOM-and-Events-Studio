@@ -21,6 +21,7 @@ window.addEventListener('load', function () {
     const takeOffButton = document.getElementById('takeoff');
     const landingButton = document.getElementById('landing');
     const abortButton = document.getElementById('missionAbort');
+    const rocket = document.querySelector('.rocket'); // added to make the rocket land and take off on command
 
     const flightStatus = document.getElementById('flightStatus');
     const flightScreen = document.getElementById('shuttleBackground');
@@ -35,6 +36,7 @@ window.addEventListener('load', function () {
             flightStatus.innerHTML = 'Shuttle in flight';
             flightScreen.style.backgroundColor = 'blue';
             shuttleHeight.innerHTML = '10,000';
+            rocket.style.bottom = '120px'; // move the rocket into the center of the square when we take off
         }
     });
 
@@ -45,6 +47,7 @@ window.addEventListener('load', function () {
         flightStatus.innerHTML = 'The shuttle has landed';
         flightScreen.style.backgroundColor = 'green';
         shuttleHeight.innerHTML = '0';
+        rocket.style.bottom = '0'; // land the rocket at the bottom of the square
     });
 
     // 4
@@ -56,6 +59,9 @@ window.addEventListener('load', function () {
             flightStatus.innerHTML = 'Mission Aborted';
             flightScreen.style.backgroundColor = 'green';
             shuttleHeight.innerHTML = '0';
+            // return rocket to original landing:
+            rocket.style.bottom = '0';
+            rocket.style.left = '125px';
         }
     })
 });
