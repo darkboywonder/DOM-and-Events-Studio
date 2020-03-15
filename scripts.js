@@ -20,12 +20,14 @@
 window.addEventListener('load', function () {
     const takeOffButton = document.getElementById('takeoff');
     const landingButton = document.getElementById('landing');
+    const abortButton = document.getElementById('missionAbort');
 
     const flightStatus = document.getElementById('flightStatus');
     const flightScreen = document.getElementById('shuttleBackground');
     const shuttleHeight = document.getElementById('spaceShuttleHeight');
     // 2
     takeOffButton.addEventListener('click', function () {
+        //2a
         let isConfirmed = confirm('Is the shuttle ready for takeoff?');
 
         if (isConfirmed) {
@@ -44,4 +46,16 @@ window.addEventListener('load', function () {
         flightScreen.style.backgroundColor = 'green';
         shuttleHeight.innerHTML = '0';
     });
+
+    // 4
+    abortButton.addEventListener('click', function () {
+        // 4a
+        let isConfirmed = confirm('Are you sure you want to abort the mission?');
+
+        if (isConfirmed) {
+            flightStatus.innerHTML = 'Mission Aborted';
+            flightScreen.style.backgroundColor = 'green';
+            shuttleHeight.innerHTML = '0';
+        }
+    })
 });
