@@ -76,19 +76,15 @@ window.addEventListener('load', function () {
 
     // 5
     leftButton.addEventListener('click', function () {
-        console.log('left', rocket.style.left);
         rocket.style.left = String(parseInt(rocket.style.left, 10) - 10) + 'px';
     });
     rightButton.addEventListener('click', function () {
-        console.log('right', rocket.style.left);
         rocket.style.left = String(parseInt(rocket.style.left, 10) + 10) + 'px';
     });
     upButton.addEventListener('click', function () {
-        console.log('up', rocket.style.bottom);
         rocket.style.bottom = String(parseInt(rocket.style.bottom, 10) + 10) + 'px';
     });
     downButton.addEventListener('click', function () {
-        console.log('down', rocket.style.bottom);
         rocket.style.bottom = String(parseInt(rocket.style.bottom, 10) - 10) + 'px';
     });
 });
